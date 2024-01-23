@@ -1,8 +1,10 @@
 # Contrastive-VisionVAE-Follower
 Contrastive-VisionVAE-Follower is a model used for multi-modal task called Vision-and-Language Navigation (VLN). The Contrastive-VisionVAE-Follower model was proposed in my undergraduate graduation thesis. It is an improvement on the Speaker-Follower model<sup>[1].
 
-![cv-follower-中文](https://github.com/Gtothemoon/Contrastive-VisionVAE-Follower/assets/88997922/7c051e91-f803-48c7-a91e-a4f951174edb)
-
+<div align=center>
+  <img src="[/path/to/image](https://github.com/Gtothemoon/Contrastive-VisionVAE-Follower/assets/88997922/7c051e91-f803-48c7-a91e-a4f951174edb)" alt="Contrastive-VisionVAE-Follower">
+</div>
+<p align="center">Figure 1: Illustration of contrast-visionVAE-follower.</p>
 
 ## Abstract
 A robot that can clearly understand human language and conduct intelligent navigation in the real visual world can perform specific tasks for human beings, such as bridge inspection, fire fighting and so on. Researchers hope that the robot can understand natural language instructions, and perform corresponding actions to reach the designated destination in the real environment combined with visual information. This navigation task is called Visual-and-Language Navigation.
@@ -11,6 +13,11 @@ Aiming at the room to room task in Visual-and-Language Navigation, based on the 
 
 ## Vision-and-Language Navigation (VLN)
 The idea that we might be able to give general, verbal instructions to a robot and have at least a reasonable probability that it will carry out the required task is one of the long-held goals of robotics, and artificial intelligence (AI). Despite significant progress, there are a number of major technical challenges that need to be overcome before robots will be able to perform general tasks in the real world. One of the primary requirements will be new techniques for linking natural language to vision and action in unstructured, previously unseen environments. It is the navigation version of this challenge that we refer to as Vision-and-Language Navigation (VLN)<sup>[2].
+
+<div align=center>
+![R2R](https://github.com/Gtothemoon/Contrastive-VisionVAE-Follower/assets/88997922/2081f93d-4575-437d-90ac-c3a093808bd0)
+</div>
+<p align="center">Figure 2: Room-to-Room (R2R) navigation task. We focus on executing natural language navigation instructions in previously unseen real-world buildings. The agent’s camera can be rotated freely. Blue discs indicate nearby (discretized) navigation options<sup>[2].</p>
 
 ## References
 [1] [Speaker-Follower Models for Vision-and-Language Navigation](https://proceedings.neurips.cc/paper/2018/hash/6a81681a7af700c6385d36577ebec359-Abstract.html) (NeurIPS 2018)
