@@ -10,8 +10,44 @@ Contrastive-VisionVAE-Follower is a model used for multi-modal task called Visio
 [2] [Speaker-Follower Models for Vision-and-Language Navigation](https://proceedings.neurips.cc/paper/2018/hash/6a81681a7af700c6385d36577ebec359-Abstract.html) (NeurIPS 2018)
 
 # Instructions
-**Download the R2R dataset and Matterport3DSimulator files**
+## Download the R2R dataset and Matterport3DSimulator files
 
 Download the [R2R dataset](https://bringmeaspoon.org/) required for the experiment. First, enter the official website of the R2R dataset, sign a usage agreement, and then send the signed usage agreement to the official designated email address matterport3d@googlegroups.com. You will soon receive an official reply, which will include a Python file for downloading the R2R dataset. Execute the Python file on the server command line to download the R2R dataset. The complete R2R dataset size is approximately 1.3T. As this experiment only requires the simulation function of the Matterport3DSimulator, only the "matterport_skybox_images" and "undistorted_camera_parameters" data from the R2R dataset need to be downloaded. You should unzip and save the downloaded data in this folder: contrastive-VisionVAE-follower/data/share/patternport3d/mP3Ddata
 
-**Download the R2R dataset and Matterport3DSimulator files**
+Then download the complete file of the [Matterport3DSimulator](https://github.com/peteanderson80/Matterport3DSimulator). Use the git command to copy the Matterport3DSimulator file from the github website to the corresponding folder on the local server. Afterwards, it is necessary to set environment variables and associate the Matterport3DSimulator with the R2R dataset.
+
+## Install Matterport3DSimulator dependencies
+It is recommended to use Dockerfile to install the Matterport3DSimulator, so we need to install docker first (please refer to the tutorial of [Matterport3DSimulator](https://github.com/peteanderson80/Matterport3DSimulator)). Docker is an open-source software containerized application engine that allows developers to package their applications and dependency files into a portable image container when building their various applications. Then, the corresponding image container can be easily released to any platform, such as machines using Linux or Windows operating systems. Of course, the Matterport3DSimulator can also be installed without using Dockerfile, but installing without Docker can be cumbersome and require users to carefully consider the relationships between the required dependent files, making installation more difficult. This experiment uses Dockerfile to install the Matterport3DSimulator.
+
+Before using docker to install Matterport3DSimulator, the configuration on the server needs to meet the following requirements:
+
+* Nvidia GPU with driver >= 396.37;
+* Install docker;
+* Install nvidia-docker2.0.
+
+## Install Matterport3DSimulator
+Use the Dockerfile to install the Matterport3DSimulator. Enter the folder of the previously downloaded Matterport3DSimulator. There is a Dockerfile in the folder for building the docker image corresponding to the simulator. Enter the following instructions in the command line of the server:
+```
+docker build -t mattersim:9.2-devel-ubuntu18.04 .
+```
+
+The docker image of Matterport3DSimulator will be automatically pulled from the remote to the local server, and the installation will be completed after a period of time. Then run the docker container and mount the Matterport3DSimulator file and R2R dataset:
+```
+nvidia-docker run -it --mount type=bind,source=$MATTERPORT_DATA_DIR,target=/root/mount/Matterport3DSimulator/data/v1/scans --volume `pwd`:/root/mount/Matterport3DSimulator mattersim:9.2-devel-ubuntu18.04
+```
+
+After successfully entering the docker container, keep your command line path still at the location of the Matterport3DSimulator folder, and enter the following instructions in the command line:
+```
+cd /root/mount/Matterport3DSimulator
+mkdir build && cd build
+cmake -DEGL_RENDERING=ON ..
+make
+cd ../
+```
+
+After waiting for a period of time, the Matterport3DSimulator and environment have been set up. In order to speed up data loading and reduce memory usage during model training, the images under the "matterport_skybox_images" file in the R2R dataset need to be preprocessed by reducing the size and merging all cube faces into one image. Run the following instructions in the docker container:
+```
+./scripts/downsize_skybox.py
+```
+
+Once completed, the "matterport_skybox_images" subdirectory in the dataset will contain image files with filenames in the format <PANO_ID>_skybox_small.jpg.
