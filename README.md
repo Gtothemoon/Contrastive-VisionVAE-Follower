@@ -1,5 +1,5 @@
 # Contrastive-VisionVAE-Follower
-Contrastive-VisionVAE-Follower is a model used for multi-modal task called Vision-and-Language Navigation (VLN). The Contrastive-VisionVAE-Follower model was proposed in my undergraduate graduation thesis. It is an improvement on the Speaker-Follower model<sup>[1].
+Contrastive-VisionVAE-Follower is a model used for multi-modal task called Vision-and-Language Navigation (VLN). The Contrastive-VisionVAE-Follower model was proposed in my undergraduate graduation thesis. It is an improvement on the Speaker-Follower model<sup>[1]. The Contrastive-VisionVAE-Follower model has applied for acceptance of an invention patent.
 
 <div align=center>
   <img src="https://github.com/Gtothemoon/Contrastive-VisionVAE-Follower/blob/main/contrastive-VisionVAE-follower.png" alt="Contrastive-VisionVAE-Follower">
