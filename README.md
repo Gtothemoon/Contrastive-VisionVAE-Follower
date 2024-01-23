@@ -2,7 +2,8 @@
 Contrastive-VisionVAE-Follower is a model used for multi-modal task called Vision-and-Language Navigation (VLN). The Contrastive-VisionVAE-Follower model was proposed in my undergraduate graduation thesis. It is an improvement on the Speaker-Follower model<sup>[1].
 
 <div align=center>
-  <img src="https://github.com/Gtothemoon/Contrastive-VisionVAE-Follower/assets/88997922/7c051e91-f803-48c7-a91e-a4f951174edb" alt="Contrastive-VisionVAE-Follower">
+  <img src="http://github.com/Gtothemoon/Contrastive-VisionVAE-Follower/contrastive-VisionVAE-follower.png" alt="Contrastive-VisionVAE-Follower">
+<!--   <img src="https://github.com/Gtothemoon/Contrastive-VisionVAE-Follower/assets/88997922/7c051e91-f803-48c7-a91e-a4f951174edb" alt="Contrastive-VisionVAE-Follower"> -->
 </div>
 <p align="center">Figure 1: Illustration of contrast-visionVAE-follower.</p>
 
