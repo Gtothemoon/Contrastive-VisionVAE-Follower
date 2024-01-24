@@ -70,6 +70,8 @@ After waiting for a period of time, the Matterport3DSimulator and environment ha
 Once completed, the `matterport_skybox_images` subdirectory in the dataset will contain image files with filenames in the format <PANO_ID>_skybox_small.jpg.
 
 ### Training demo
+Please first unzip `ResNet-152-imagenet.zip` in that folder: `contrastive-VisionVAE-follower/tasks/R2R/img_features`.
+
 Start the installed Matterport3DSimulator on the server, enter the corresponding file directory `contrastive-VisionVAE-follower/tasks/R2R` where the code corresponding to the contrast-visionVAE-follower model is stored, and enter the following instructions in the server command line to start the model training process:
 ```
 python3 tasks/R2R/train.py
