@@ -1,1 +1,0 @@
-This is my undergraduate graduation thesis, which proposeed the contrastive-VisionVAE-follower model.
